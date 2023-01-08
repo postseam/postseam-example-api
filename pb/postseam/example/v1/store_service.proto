@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pb.postseam.example.v1;
+
+import "pb/postseam/example/v1/store.proto";
+
+
+// StoreService: Handles all the logic for stores on the platform
+service StoreService {
+    rpc GetStore(GetStoreRequest) returns (Store) {}
+    rpc CreateStore(CreateStoreRequest) returns (Store) {}
+}
+
+// CreateStoreRequest: Fields to create a store
+message CreateStoreRequest{
+    string id = 1;
+    string email = 2;
+    string business_name = 3;
+}
+
+// GetStoreRequest: Request for a single store
+message GetStoreRequest{
+    string store_id = 1;
+}

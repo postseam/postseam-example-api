@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb.postseam.example.v1;
+
+// Store representation for stores on the platform.
+message Store{
+
+    // ID used to reference user
+    string id = 1;
+
+    // Email to contact user
+    string email = 2;
+
+    // Business name to show to users
+    string business_name = 3;
+}
