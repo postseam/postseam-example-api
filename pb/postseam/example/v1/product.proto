@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package pb.postseam.example.v1;
+
+// Product represents the definition for products on the platform
+message Product{
+
+    // UUID of the product, auto generated 
+    string id = 1;
+
+    // UUID of the store that created this product
+    string store_id = 2;
+
+    // Name of the product
+    string product_name = 3;
+
+    // Description of the product
+    string product_description = 4;
+
+    // Timestamp product was created
+    int64 create_time = 5;
+
+    // Timestamp product was last updated
+    int64 update_time = 6;
+}
