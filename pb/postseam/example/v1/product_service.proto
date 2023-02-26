@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package pb.postseam.example.v1;
+import "pb/postseam/example/v1/product.proto";
+
+// ProductService: Handles all the logic for products on the platform
+service ProductService {
+    rpc GetProduct(GetProductRequest) returns (Product) {}
+    rpc CreateProduct(CreateProductRequest) returns (Product) {}
+    rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+}
+
+// CreateProductRequest: Fields to create a product
+message CreateProductRequest{
+    string store_id = 1;
+    string product_name = 2;
+    string product_description = 3;
+}
+
+// GetProductRequest: Request for a single product
+message GetProductRequest{
+    string product_id = 1;
+}
+
+// ListProductsRequest: Request for listing products owned by a store, supports pagination.
+message ListProductsRequest {
+    string store_id = 1;
+
+    // pagination fields
+    int32 page_size = 2;
+    string page_token = 3;
+}
+
+// ListProductsResponse: Response for listing products owned by a store, supports pagination.
+message ListProductsResponse {
+    repeated Product products = 1;
+
+    // pagination field
+    string next_page_token = 2;
+}
